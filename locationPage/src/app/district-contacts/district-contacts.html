@@ -1,0 +1,25 @@
+
+    <div class="section">
+
+      <h4 class="sub-title">District Contacts</h4>
+
+      <div class="scroll-box">
+        <table class="table">
+          <tr>
+            <td class="label">Position</td>
+            <td class="label">Email</td>
+            <td class="label">Name</td>
+            <td class="label">SSO ID</td>
+          </tr>
+
+          <tr *ngFor="let item of data">
+            <td>{{item.position}}</td>
+            <td class="blue">{{item.email}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.ssoId}}</td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+ 

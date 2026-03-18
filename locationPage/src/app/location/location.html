@@ -1,0 +1,69 @@
+
+<div class="container">
+
+  
+  <app-navbar [activeTab]="activeTab" (tabChange)="setTab($event)">
+  </app-navbar>
+
+  
+  <div class="page">
+
+    
+    <div *ngIf="activeTab === 'requisition'">
+      <h3>Requisition Details Content</h3>
+    </div>
+
+    
+    <div *ngIf="activeTab === 'quotes'">
+      <h3>Quotes Content</h3>
+    </div>
+
+  
+    <div *ngIf="activeTab === 'attachments'">
+      <h3>RO/Job Attachments Content</h3>
+    </div>
+
+    
+    <div *ngIf="activeTab === 'Location Information'">
+
+
+
+
+    </div>
+    <div *ngIf="activeTab === 'location'">
+
+      <app-location-details [data]="locationDetails">
+      </app-location-details>
+
+      <app-location-contacts [data]="locationDetails?.locationContacts">
+      </app-location-contacts>
+
+      <app-notes [data]="locationDetails">
+      </app-notes>
+
+      <app-hierarchy [data]="hierarchy">
+      </app-hierarchy>
+
+      <app-region-contacts [data]="hierarchy?.regionDetails">
+      </app-region-contacts>
+
+      <app-area-contacts [data]="hierarchy?.areaDetails">
+      </app-area-contacts>
+
+      <app-district-contacts [data]="hierarchy?.districtDetails">
+      </app-district-contacts>
+
+    </div>
+  
+    <div *ngIf="activeTab === 'correspondence'">
+      <h3>Correspondence Content</h3>
+    </div>
+
+    
+    <div *ngIf="activeTab === 'audit'">
+      <h3>Audit Log Content</h3>
+    </div>
+
+  </div>
+
+</div>

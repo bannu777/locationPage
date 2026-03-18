@@ -1,0 +1,26 @@
+<div class="section">
+  <h3>Location Details</h3>
+<div *ngIf=" data">
+  <table class="table">
+
+  
+  <tr class="label-row">
+    <td>Parts Location Link</td>
+    <td>Location Name</td>
+    <td>Time Zone</td>
+    <td>Address</td>
+    <td>Phone</td>
+  </tr>
+
+  
+  <tr class="value-row">
+    <td class="blue">{{data.partLocationLink}}</td>
+    <td>{{data.locationName}}</td>
+    <td>{{data.timeZone}}</td>
+    <td>{{data.address}}</td>
+    <td>{{data.locationPhone}}</td>
+  </tr>
+
+</table>
+</div>
+</div>

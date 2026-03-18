@@ -1,0 +1,41 @@
+<nav class="navbar">
+  <ul class="nav-list">
+
+    <li 
+      [class.active]="activeTab === 'requisition'" 
+      (click)="setTab('requisition')">
+      Requisition Details
+    </li>
+
+    <li 
+      [class.active]="activeTab === 'quotes'" 
+      (click)="setTab('quotes')">
+      Quotes
+    </li>
+
+    <li 
+      [class.active]="activeTab === 'attachments'" 
+      (click)="setTab('attachments')">
+      RO/Job Attachments
+    </li>
+
+    <li 
+      [class.active]="activeTab === 'location'" 
+      (click)="setTab('location')">
+      Location Information
+    </li>
+
+    <li 
+      [class.active]="activeTab === 'correspondence'" 
+      (click)="setTab('correspondence')">
+      Correspondence
+    </li>
+
+    <li 
+      [class.active]="activeTab === 'audit'" 
+      (click)="setTab('audit')">
+      Audit Log
+    </li>
+
+  </ul>
+</nav>

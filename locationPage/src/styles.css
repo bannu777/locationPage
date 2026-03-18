@@ -1,0 +1,218 @@
+/* You can add global styles to this file, and also import other style files */
+/* ===== GLOBAL ===== */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f6f7;
+  color: #333;
+}
+
+
+.container {
+  width: 96%;
+  margin: 10px auto;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+
+.page {
+  height: calc(100vh - 50px);
+  overflow-y: auto;
+}
+
+
+.navbar {
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+}
+
+.nav-list {
+  display: flex;
+  gap: 30px;
+  padding: 10px 15px;
+  list-style: none;
+  font-size: 13px;
+  margin: 0;
+}
+
+.nav-list li {
+  color: #666;
+  cursor: pointer;
+}
+
+.nav-list .active {
+  color: #000;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 5px;
+  font-weight: 600;
+}
+
+.section {
+  border-bottom: 1px solid #ddd;
+  margin: 0;
+  padding: 0;
+}
+
+
+.section h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  padding: 10px 12px;
+  background: #fafafa;
+  border-bottom: 1px solid #ddd;
+}
+
+
+.sub-title {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-bottom: 1px solid #eee;
+  color: #444;
+}
+
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+}
+
+
+.table td {
+  padding: 6px 10px;
+  font-size: 13px;
+  border-bottom: 1px solid #eee;
+  white-space: normal;   
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
+.label {
+  width: 12%;
+  font-weight: 600;
+  color: #444;
+  font-size: 13;
+}
+
+.label-row td {
+  font-size: 12px;
+  color: #6b7280;
+  padding: 6px 12px;
+}
+
+/* ===== VALUES ===== */
+.value {
+  width: 20%;
+  white-space: normal;
+}
+
+.value-row td {
+  font-size: 13px;
+  font-weight: 500;
+  color: #111;
+  padding: 8px 12px;
+}
+.value-row td:nth-child(4) {
+  white-space: normal;
+  max-width: 250px;
+}
+
+.note-text {
+  padding-top: 4px;
+  padding-bottom: 12px;
+  line-height: 1.6;
+  font-size: xx-small;
+}
+
+
+
+
+
+.blue {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.blue:hover {
+  text-decoration: underline;
+}
+
+
+.scroll-box {
+  max-height: 130px;
+  overflow-y: auto;
+}
+.contact-scroll {
+  height: 100px;
+  overflow-y: auto;
+  border: 1px solid #eee;
+}
+.contact-scroll table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.contact-scroll td {
+  padding: 8px 10px;
+  font-size: 13px;
+  border-bottom: 1px solid #eee;
+  
+}
+.contact-scroll thead td {
+  position: sticky;
+  top: 0;
+  background: #fafafa;
+}
+.location-scroll-box{
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+
+.scroll-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scroll-box::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.scroll-box::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 4px;
+}
+
+.scroll-box::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+
+.table tr td[colspan] {
+  color: #555;
+}
+
+
+h3, h4 {
+  margin: 0;
+}
+
+
+.table tr:first-child td {
+  font-weight: 600;
+  color: #555;
+}
+
+
+@media (max-width: 1200px) {
+  .table td {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+}

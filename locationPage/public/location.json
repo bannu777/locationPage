@@ -1,0 +1,133 @@
+{
+    "success": true,
+    "responseMessage": "OK",
+    "data": {
+        "locationDetails": {
+            "partLocationLink": "M100-10",
+            "locationName": "MIDSOUTH MOBILE",
+            "timeZone": "E",
+            "address": "2825 SIMPSON CIR  NORCROSS GA 30071",
+            "locationPhone": "0",
+            "locationContacts": [{"position": "AFM",
+    "email": "john.doe@org.com",
+    "name": "John Doe",
+    "ssoId": "50554345"},
+{
+    "position": "AFM",
+    "email": "richard.smith@org.com",
+    "name": "Richard Smith",
+    "ssoId": "50554352"
+  },
+{
+                    "position": "DIRECTOR-REGION FINANCIAL OPERATIONS",
+                    "name": "FREEMAN, PHILIP A",
+                    "email": "philip.freeman@org.com",
+                    "ssoId": "200005768"
+                }],
+            "cpoRegionNote": null,
+            "cpoAreaNotes": null,
+            "cpoDistrictNotes": null,
+            "cpoLocationNotes": null
+        },
+        "hierarchyDetails": {
+            "partsDetails": {
+                "partsRegion": "0833",
+                "regionName": "SOUTHEAST REGION",
+                "partsArea": "0606",
+                "areaName": "MIDDLE SOUTH"
+            },
+            "regionDetails": [
+                {
+                    "position": "DIRECTOR-REGION FINANCIAL OPERATIONS",
+                    "name": "FREEMAN, PHILIP A",
+                    "email": "philip.freeman@org.com",
+                    "ssoId": "200005768"
+                }
+            ],
+            "areaDetails": [
+                {
+                    "position": "AREA MAINTENANCE MANAGER",
+                    "name": "WORTHEY, DEMETRIUS",
+                    "email": "Demetrius.Worthey@org.com",
+                    "ssoId": "200128814"
+                },
+                {
+                    "position": "MANAGER-AREA FINANCIAL",
+                    "name": "PRICE, MARNIE R",
+                    "email": "marnie.price@org.com",
+                    "ssoId": "200014007"
+                }
+            ],
+            "partsDistrict": "M100",
+            "districtName": "MIDSOUTH MOBILE",
+            "districtDetails": [
+                {
+                    "position": "CUSTOMER SERVICE COORDINATOR-LEASING",
+                    "name": "WEEKS, TRACY H",
+                    "email": "Tracy.Weeks@org.com",
+                    "ssoId": "200248053"
+                },
+                {
+                    "position": "MAINTENANCE COORDINATOR",
+                    "name": "SANFORD, KADIE LYNN",
+                    "email": "Kadie.Sanford@org.com",
+                    "ssoId": "200240822"
+                },
+                {
+                    "position": "MAINTENANCE SUPERVISOR-SHIFT 2",
+                    "name": "REID, DELANO",
+                    "email": "Delano.Reid@org.com",
+                    "ssoId": "200178440"
+                },
+                {
+                    "position": "MANAGER-FIELD MOBILE MAINTENANCE",
+                    "name": "HESTER, RAYMOND C",
+                    "email": "chris.hester@org.com",
+                    "ssoId": "200103916"
+                },
+                {
+                    "position": "TECHNICIAN I-MOBILE",
+                    "name": "LEDFORD, DEREK",
+                    "email": "Derek.Ledford@org.com",
+                    "ssoId": "200130636"
+                },
+                {
+                    "position": "TECHNICIAN I-MOBILE",
+                    "name": "TURNER, JAMES MATTHEW",
+                    "email": "James.Turner@org.com",
+                    "ssoId": "200133055"
+                },
+                {
+                    "position": "TECHNICIAN I-MOBILE",
+                    "name": "MULLEN, PATRICK",
+                    "email": "Patrick.Mullen@org.com",
+                    "ssoId": "200145829"
+                },
+                {
+                    "position": "TECHNICIAN II-MOBILE",
+                    "name": "HERNANDEZ, RENE",
+                    "email": "Rene.Hernandez@org.com",
+                    "ssoId": "200228788"
+                },
+                {
+                    "position": "TECHNICIAN II-MOBILE",
+                    "name": "STEPHENS-WEIDMAN, BRENDAN",
+                    "email": "Brendan.StephensWeidman@org.com",
+                    "ssoId": "200246050"
+                },
+                {
+                    "position": "TECHNICIAN II-MOBILE",
+                    "name": "VAUGHN, EVAN SALE",
+                    "email": "Evan.Vaughn@org.com",
+                    "ssoId": "200247512"
+                },
+                {
+                    "position": "TECHNICIAN II-MOBILE",
+                    "name": "BRICKLEFF, NATHANIEL",
+                    "email": "Nathaniel.Brickleff@org.com",
+                    "ssoId": "200292947"
+                }
+            ]
+        }
+    }
+}

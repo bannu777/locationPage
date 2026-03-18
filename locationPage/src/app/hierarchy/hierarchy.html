@@ -1,0 +1,25 @@
+<div class="section"  *ngIf = "data?.partsDetails">
+  <h3>Hierarchy Details</h3>
+
+  <table class="table">
+
+  
+  <tr class="label-row">
+    <td>Parts Region</td>
+    <td>Region Name</td>
+    <td>Parts Area</td>
+    <td>Time Zone</td>
+    <td>Area Name</td>
+  </tr>
+
+  
+  <tr class="value-row">
+    <td class="blue">{{data?.partsDetails?.partsRegion}}</td>
+    <td>{{data?.partsDetails?.regionName}}</td>
+    <td>{{data?.partsDetails?.partsArea}}</td>
+    <td>EST</td>
+    <td>{{data?.partsDetails?.areaName}}</td>
+  </tr>
+
+</table>
+</div>
