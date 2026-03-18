@@ -1,5 +1,14 @@
 {
+   "builds" : [
+    {
+        "src" : "angular.json",
+        "use" : "@vercel/static-build",
+        "config" : {"distDir" : "dist/locationPage"}
+    }
+   ],
+   
     "routes": [
+        {"handle" : "filesystem"},
         {"src" : "/.*", "dest" : "/"}
     ]
 }
