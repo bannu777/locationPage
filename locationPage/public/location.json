@@ -8,22 +8,26 @@
             "timeZone": "E",
             "address": "2825 SIMPSON CIR  NORCROSS GA 30071",
             "locationPhone": "0",
-            "locationContacts": [{"position": "AFM",
-    "email": "john.doe@org.com",
-    "name": "John Doe",
-    "ssoId": "50554345"},
-{
-    "position": "AFM",
-    "email": "richard.smith@org.com",
-    "name": "Richard Smith",
-    "ssoId": "50554352"
-  },
-{
+            "locationContacts": [
+                {
+                    "position": "AFM",
+                    "email": "john.doe@org.com",
+                    "name": "John Doe",
+                    "ssoId": "50554345"
+                },
+                {
+                    "position": "AFM",
+                    "email": "richard.smith@org.com",
+                    "name": "Richard Smith",
+                    "ssoId": "50554352"
+                },
+                {
                     "position": "DIRECTOR-REGION FINANCIAL OPERATIONS",
                     "name": "FREEMAN, PHILIP A",
                     "email": "philip.freeman@org.com",
                     "ssoId": "200005768"
-                }],
+                }
+            ],
             "cpoRegionNote": null,
             "cpoAreaNotes": null,
             "cpoDistrictNotes": null,

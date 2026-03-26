@@ -1,29 +1,54 @@
-
 <div class="container">
 
-  
-  <app-navbar [activeTab]="activeTab" (tabChange)="setTab($event)">
-  </app-navbar>
 
-  
+  <nav class="navbar">
+    <ul class="nav-list">
+
+      <li [class.active]="activeTab === 'requisition'" (click)="setTab('requisition')">
+        Requisition Details
+      </li>
+
+      <li [class.active]="activeTab === 'quotes'" (click)="setTab('quotes')">
+        Quotes
+      </li>
+
+      <li [class.active]="activeTab === 'attachments'" (click)="setTab('attachments')">
+        RO/Job Attachments
+      </li>
+
+      <li [class.active]="activeTab === 'location'" (click)="setTab('location')">
+        Location Information
+      </li>
+
+      <li [class.active]="activeTab === 'correspondence'" (click)="setTab('correspondence')">
+        Correspondence
+      </li>
+
+      <li [class.active]="activeTab === 'audit'" (click)="setTab('audit')">
+        Audit Log
+      </li>
+
+    </ul>
+  </nav>
+
   <div class="page">
 
-    
+
     <div *ngIf="activeTab === 'requisition'">
       <h3>Requisition Details Content</h3>
     </div>
 
-    
+
     <div *ngIf="activeTab === 'quotes'">
       <h3>Quotes Content</h3>
     </div>
 
-  
+
     <div *ngIf="activeTab === 'attachments'">
       <h3>RO/Job Attachments Content</h3>
     </div>
 
-    
+
     <div *ngIf="activeTab === 'Location Information'">
 
 
@@ -32,34 +57,219 @@
     </div>
     <div *ngIf="activeTab === 'location'">
 
-      <app-location-details [data]="locationDetails">
-      </app-location-details>
+      <div class="section">
+        <h3>Location Details</h3>
 
-      <app-location-contacts [data]="locationDetails?.locationContacts">
-      </app-location-contacts>
+        <table class="table">
 
-      <app-notes [data]="locationDetails">
-      </app-notes>
 
-      <app-hierarchy [data]="hierarchy">
-      </app-hierarchy>
+          <tr class="label-row">
+            <td>Parts Location Link</td>
+            <td>Location Name</td>
+            <td>Time Zone</td>
+            <td>Address</td>
+            <td>Phone</td>
+          </tr>
 
-      <app-region-contacts [data]="hierarchy?.regionDetails">
-      </app-region-contacts>
 
-      <app-area-contacts [data]="hierarchy?.areaDetails">
-      </app-area-contacts>
+          <tr class="value-row">
+            <td class="blue">{{locationDetails?.partLocationLink}}</td>
+            <td>{{locationDetails?.locationName}}</td>
+            <td>{{locationDetails?.timeZone}}</td>
+            <td>{{locationDetails?.address}}</td>
+            <td>{{locationDetails?.locationPhone}}</td>
+          </tr>
 
-      <app-district-contacts [data]="hierarchy?.districtDetails">
-      </app-district-contacts>
+        </table>
+
+      </div>
+
+      <div class="section">
+
+        <h4 class="sub-title">Location Contact</h4>
+
+        <div class="contact-scroll">
+
+          <table class="table">
+
+
+            <tr>
+              <td class="label">Position</td>
+              <td class="label">Email</td>
+              <td class="label">Name</td>
+              <td class="label">SSO ID</td>
+            </tr>
+
+
+
+
+            <tr *ngFor=" let item of locationDetails?.locationContacts">
+              <td>{{ item.position }}</td>
+
+              <td>
+                <a href="mailto:{{item.email}}" class="blue">
+                  {{ item.email }}
+                </a>
+              </td>
+
+              <td>{{ item.name }}</td>
+              <td>{{ item.ssoId }}</td>
+            </tr>
+
+
+          </table>
+
+        </div>
+
+      </div>
+
+      <div class="section">
+
+
+        <table class="table">
+
+
+
+          <td class="notes-label">CPO Region Note</td>
+          <td class="notes-label">CPO District Note</td>
+
+          <tr>
+            <td class="value note-text">
+              {{ locationDetails?.cpoRegionNote || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor
+              incididunt ut labore et dolore magna aliqua.' }}
+            </td>
+            <td class="value note-text">
+              {{ locationDetails?.cpoDistrictNotes || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod
+              tempor incididunt ut labore et dolore magna aliqua.' }}
+            </td>
+          </tr>
+
+
+          <tr>
+            <td class="notes-label">CPO Area Note</td>
+            <td class="notes-label">CPO Location Note</td>
+          </tr>
+          <tr>
+            <td class="value note-text">
+              {{ locationDetails?.cpoAreaNotes || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor
+              incididunt ut labore et dolore magna aliqua.' }}
+            </td>
+            <td class="value note-text">
+              {{ locationDetails?.cpoLocationNotes || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod
+              tempor incididunt ut labore et dolore magna aliqua.' }}
+            </td>
+          </tr>
+
+        </table>
+      </div>
+
+      <div class="section">
+        <h3>Hierarchy Details</h3>
+
+        <table class="table">
+
+
+          <tr class="label-row">
+            <td>Parts Region</td>
+            <td>Region Name</td>
+            <td>Parts Area</td>
+            <td>Time Zone</td>
+            <td>Area Name</td>
+          </tr>
+
+
+          <tr class="value-row">
+            <td class="blue">{{hierarchy?.partsDetails?.partsRegion}}</td>
+            <td>{{hierarchy?.partsDetails?.regionName}}</td>
+            <td>{{hierarchy?.partsDetails?.partsArea}}</td>
+            <td>EST</td>
+            <td>{{hierarchy?.partsDetails?.areaName}}</td>
+          </tr>
+
+        </table>
+      </div>
+
+      <div class="section">
+
+        <h4 class="sub-title">Region Contacts</h4>
+        <table class = "table">
+        
+          <tr >
+            <td class="label">Position</td>
+            <td class="label">Email</td>
+            <td class="label">Name</td>
+            <td class="label">SSO ID</td>
+          </tr>
+
+          <tr *ngFor = "let item of hierarchy?.regionDetails">
+            <td>{{item.position}}</td>
+            <td class="blue">{{item.email}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.ssoId}}</td>
+          </tr>
+        </table>
+
+      </div>
+
+
+      <div class="section">
+
+        <h4 class="sub-title">Area Contacts</h4>
+
+        <table class="table">
+          <tr>
+            <td class="label">Position</td>
+            <td class="label">Email</td>
+            <td class="label">Name</td>
+            <td class="label">SSO ID</td>
+          </tr>
+
+          <tr *ngFor="let item of hierarchy?.areaDetails">
+            <td>{{item.position}}</td>
+            <td class="blue">{{item.email}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.ssoId}}</td>
+          </tr>
+        </table>
+
+      </div>
+
+      <div class="section">
+
+        <h4 class="sub-title">District Contacts</h4>
+
+        <div class="scroll-box">
+          <table class="table">
+            <tr>
+              <td class="label">Position</td>
+              <td class="label">Email</td>
+              <td class="label">Name</td>
+              <td class="label">SSO ID</td>
+            </tr>
+
+            <tr *ngFor="let item of hierarchy?.districtDetails">
+              <td>{{item.position}}</td>
+              <td class="blue">{{item.email}}</td>
+              <td>{{item.name}}</td>
+              <td>{{item.ssoId}}</td>
+            </tr>
+          </table>
+        </div>
+
+      </div>
+
 
     </div>
-  
+
     <div *ngIf="activeTab === 'correspondence'">
       <h3>Correspondence Content</h3>
     </div>
 
-    
+
     <div *ngIf="activeTab === 'audit'">
       <h3>Audit Log Content</h3>
     </div>
