@@ -13,7 +13,7 @@ export class LocationService {
   }
 
   getLocationData() : Observable<any> {
-    return this.http.get<any>(this.url);
+    return this.http.get('https://dummyjson.com/users');
   }
 
 }

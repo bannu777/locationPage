@@ -1,45 +1,88 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { LocationService } from '../services/location';
-
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LocationService } from '../services/location';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-location',
-  standalone : true,
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './location.html',
   styleUrl: './location.css',
 })
-export class Location implements OnInit{
-locationDetails: any = {};
+export class Location implements OnInit {
+
+  locationDetails: any = {};
   hierarchy: any = {};
+  activeTab: any = 'location';
 
-  activeTab: any = 'location';  
+  constructor(private service: LocationService) {}
 
+  ngOnInit() {
+    this.service.getLocationData()
+      .pipe(
 
-constructor(
-    private locationService: LocationService,
-    private cd: ChangeDetectorRef
-  ) {}
+        
+        map((res: any) => {
+
+          const users = res.users;
+
+      
+          const locationDetails = {
+            partLocationLink: users[0].id,
+            locationName: users[0].company.name,
+            timeZone: 'EST',
+            address: users[0].address.address + ', ' + users[0].address.city,
+            locationPhone: users[0].phone,
+
+            cpoRegionNote: 'Generated from API',
+            cpoDistrictNotes: 'Generated from API',
+            cpoAreaNotes: 'Generated from API',
+            cpoLocationNotes: 'Generated from API',
+
+            locationContacts: users.map((u: any) => ({
+              position: 'AFM',
+              email: u.email,
+              name: u.firstName + ' ' + u.lastName,
+              ssoId: u.id
+            }))
+          };
+
+          
+          const contacts = locationDetails.locationContacts;
+
+          
+          const hierarchy = {
+            partsDetails: {
+              partsRegion: users[0].address.state,
+              regionName: users[0].company.name,
+              partsArea: users[1].address.state,
+              areaName: users[1].address.city
+            },
+
+            regionDetails: contacts.slice(0, 3),
+            areaDetails: contacts.slice(3, 6),
+            districtDetails: contacts.slice(6, 10),
+
+            partsDistrict: users[2].address.state,
+            districtName: users[2].address.city
+          };
+
+      
+          return { locationDetails, hierarchy };
+        })
+
+      )
+      .subscribe((data: any) => {
+
+      
+        this.locationDetails = data.locationDetails;
+        this.hierarchy = data.hierarchy;
+
+      });
+  }
 
   setTab(tab: string) {
-  this.activeTab = tab;
-}
-
-ngOnInit() {
-  this.locationService.getLocationData().subscribe(res => {
-    console.log(res);
-    const data = res.data;
-
-    this.locationDetails = data.locationDetails;
-    this.hierarchy = data.hierarchyDetails;
-
-    console.log(this.locationDetails);
-    console.log(this.hierarchy);
-    console.log(this.locationDetails.LocationContacts);
-    this.cd.detectChanges();
-  });
-
-  
-}
+    this.activeTab = tab;
+  }
 }
