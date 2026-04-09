@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LocationService } from '../services/location';
 import { map } from 'rxjs/operators';
@@ -16,18 +16,18 @@ export class Location implements OnInit {
   hierarchy: any = {};
   activeTab: any = 'location';
 
-  constructor(private service: LocationService) {}
+  constructor(private service: LocationService,
+    private cd : ChangeDetectorRef
+  ) {}
 
   ngOnInit() {
     this.service.getLocationData()
       .pipe(
-
-        
         map((res: any) => {
 
           const users = res.users;
 
-      
+          // ✅ LOCATION DETAILS (MATCH HTML)
           const locationDetails = {
             partLocationLink: users[0].id,
             locationName: users[0].company.name,
@@ -40,6 +40,7 @@ export class Location implements OnInit {
             cpoAreaNotes: 'Generated from API',
             cpoLocationNotes: 'Generated from API',
 
+            // 🔥 IMPORTANT: used in HTML
             locationContacts: users.map((u: any) => ({
               position: 'AFM',
               email: u.email,
@@ -48,10 +49,9 @@ export class Location implements OnInit {
             }))
           };
 
-          
           const contacts = locationDetails.locationContacts;
 
-          
+          // ✅ HIERARCHY (MATCH HTML)
           const hierarchy = {
             partsDetails: {
               partsRegion: users[0].address.state,
@@ -60,25 +60,23 @@ export class Location implements OnInit {
               areaName: users[1].address.city
             },
 
+            // 🔥 used in region/area/district tables
             regionDetails: contacts.slice(0, 3),
             areaDetails: contacts.slice(3, 6),
             districtDetails: contacts.slice(6, 10),
 
+            // 🔥 used in district top row
             partsDistrict: users[2].address.state,
             districtName: users[2].address.city
           };
 
-      
           return { locationDetails, hierarchy };
         })
-
       )
       .subscribe((data: any) => {
-
-      
         this.locationDetails = data.locationDetails;
         this.hierarchy = data.hierarchy;
-
+        this.cd.detectChanges();
       });
   }
 
